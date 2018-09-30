@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DraftPSDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CountryID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContactTypeID" Type="uniqueidentifier" />
+          <Property Name="StudentRequestID" Type="uniqueidentifier" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EducationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InterviewHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AdvisorID" Type="uniqueidentifier" />
+          <Property Name="StudentRequestID" Type="uniqueidentifier" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestTracking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AdvisorID" Type="uniqueidentifier" />
+          <Property Name="EducationTypeID" Type="uniqueidentifier" />
+          <Property Name="HomeCityID" Type="uniqueidentifier" />
+          <Property Name="RequestTrackingID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentUniversityRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StudentRequestID" Type="uniqueidentifier" />
+          <Property Name="UniversityDepartmentID" Type="uniqueidentifier" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CityID" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UniversityDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UniversityID" Type="uniqueidentifier" />
+          <Property Name="DepartmentID" Type="uniqueidentifier" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_City_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_ContactType">
+          <End Role="ContactType" Type="Self.ContactType" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="ContactTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_StudentRequest">
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="StudentRequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterviewHistory_StudentRequest">
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="0..1" />
+          <End Role="InterviewHistory" Type="Self.InterviewHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="InterviewHistory">
+              <PropertyRef Name="StudentRequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentRequest_EducationType">
+          <End Role="EducationType" Type="Self.EducationType" Multiplicity="0..1" />
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentRequest">
+              <PropertyRef Name="EducationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentRequest_RequestTracking">
+          <End Role="RequestTracking" Type="Self.RequestTracking" Multiplicity="0..1" />
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestTracking">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentRequest">
+              <PropertyRef Name="RequestTrackingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentUniversityRequest_StudentRequest">
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="0..1" />
+          <End Role="StudentUniversityRequest" Type="Self.StudentUniversityRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentUniversityRequest">
+              <PropertyRef Name="StudentRequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentUniversityRequest_UniversityDepartment">
+          <End Role="UniversityDepartment" Type="Self.UniversityDepartment" Multiplicity="0..1" />
+          <End Role="StudentUniversityRequest" Type="Self.StudentUniversityRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversityDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentUniversityRequest">
+              <PropertyRef Name="UniversityDepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_University_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="University" Type="Self.University" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="University">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniversityDepartment_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="UniversityDepartment" Type="Self.UniversityDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniversityDepartment">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniversityDepartment_University">
+          <End Role="University" Type="Self.University" Multiplicity="0..1" />
+          <End Role="UniversityDepartment" Type="Self.UniversityDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniversityDepartment">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DraftPSDbModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactType" EntityType="Self.ContactType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EducationType" EntityType="Self.EducationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterviewHistory" EntityType="Self.InterviewHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestTracking" EntityType="Self.RequestTracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentRequest" EntityType="Self.StudentRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentUniversityRequest" EntityType="Self.StudentUniversityRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UniversityDepartment" EntityType="Self.UniversityDepartment" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_ContactType" Association="Self.FK_Contact_ContactType">
+            <End Role="ContactType" EntitySet="ContactType" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_StudentRequest" Association="Self.FK_Contact_StudentRequest">
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterviewHistory_StudentRequest" Association="Self.FK_InterviewHistory_StudentRequest">
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+            <End Role="InterviewHistory" EntitySet="InterviewHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentRequest_EducationType" Association="Self.FK_StudentRequest_EducationType">
+            <End Role="EducationType" EntitySet="EducationType" />
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentRequest_RequestTracking" Association="Self.FK_StudentRequest_RequestTracking">
+            <End Role="RequestTracking" EntitySet="RequestTracking" />
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentUniversityRequest_StudentRequest" Association="Self.FK_StudentUniversityRequest_StudentRequest">
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+            <End Role="StudentUniversityRequest" EntitySet="StudentUniversityRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentUniversityRequest_UniversityDepartment" Association="Self.FK_StudentUniversityRequest_UniversityDepartment">
+            <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
+            <End Role="StudentUniversityRequest" EntitySet="StudentUniversityRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_University_City" Association="Self.FK_University_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="University" EntitySet="University" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniversityDepartment_Department" Association="Self.FK_UniversityDepartment_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniversityDepartment_University" Association="Self.FK_UniversityDepartment_University">
+            <End Role="University" EntitySet="University" />
+            <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DraftPSDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="CountryID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_City_Country" FromRole="City" ToRole="Country" />
+          <NavigationProperty Name="University" Relationship="Self.FK_University_City" FromRole="City" ToRole="University" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ContactTypeID" Type="Guid" />
+          <Property Name="StudentRequestID" Type="Guid" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ContactType" Relationship="Self.FK_Contact_ContactType" FromRole="Contact" ToRole="ContactType" />
+          <NavigationProperty Name="StudentRequest" Relationship="Self.FK_Contact_StudentRequest" FromRole="Contact" ToRole="StudentRequest" />
+        </EntityType>
+        <EntityType Name="ContactType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_Contact_ContactType" FromRole="ContactType" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_City_Country" FromRole="Country" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UniversityDepartment" Relationship="Self.FK_UniversityDepartment_Department" FromRole="Department" ToRole="UniversityDepartment" />
+        </EntityType>
+        <EntityType Name="EducationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StudentRequest" Relationship="Self.FK_StudentRequest_EducationType" FromRole="EducationType" ToRole="StudentRequest" />
+        </EntityType>
+        <EntityType Name="InterviewHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="AdvisorID" Type="Guid" />
+          <Property Name="StudentRequestID" Type="Guid" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StudentRequest" Relationship="Self.FK_InterviewHistory_StudentRequest" FromRole="InterviewHistory" ToRole="StudentRequest" />
+        </EntityType>
+        <EntityType Name="RequestTracking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StudentRequest" Relationship="Self.FK_StudentRequest_RequestTracking" FromRole="RequestTracking" ToRole="StudentRequest" />
+        </EntityType>
+        <EntityType Name="StudentRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="AdvisorID" Type="Guid" />
+          <Property Name="EducationTypeID" Type="Guid" />
+          <Property Name="HomeCityID" Type="Guid" />
+          <Property Name="RequestTrackingID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_Contact_StudentRequest" FromRole="StudentRequest" ToRole="Contact" />
+          <NavigationProperty Name="EducationType" Relationship="Self.FK_StudentRequest_EducationType" FromRole="StudentRequest" ToRole="EducationType" />
+          <NavigationProperty Name="InterviewHistory" Relationship="Self.FK_InterviewHistory_StudentRequest" FromRole="StudentRequest" ToRole="InterviewHistory" />
+          <NavigationProperty Name="RequestTracking" Relationship="Self.FK_StudentRequest_RequestTracking" FromRole="StudentRequest" ToRole="RequestTracking" />
+          <NavigationProperty Name="StudentUniversityRequest" Relationship="Self.FK_StudentUniversityRequest_StudentRequest" FromRole="StudentRequest" ToRole="StudentUniversityRequest" />
+        </EntityType>
+        <EntityType Name="StudentUniversityRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="StudentRequestID" Type="Guid" />
+          <Property Name="UniversityDepartmentID" Type="Guid" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="StudentRequest" Relationship="Self.FK_StudentUniversityRequest_StudentRequest" FromRole="StudentUniversityRequest" ToRole="StudentRequest" />
+          <NavigationProperty Name="UniversityDepartment" Relationship="Self.FK_StudentUniversityRequest_UniversityDepartment" FromRole="StudentUniversityRequest" ToRole="UniversityDepartment" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="CityID" Type="Guid" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_University_City" FromRole="University" ToRole="City" />
+          <NavigationProperty Name="UniversityDepartment" Relationship="Self.FK_UniversityDepartment_University" FromRole="University" ToRole="UniversityDepartment" />
+        </EntityType>
+        <EntityType Name="UniversityDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="UniversityID" Type="Guid" />
+          <Property Name="DepartmentID" Type="Guid" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_UniversityDepartment_Department" FromRole="UniversityDepartment" ToRole="Department" />
+          <NavigationProperty Name="StudentUniversityRequest" Relationship="Self.FK_StudentUniversityRequest_UniversityDepartment" FromRole="UniversityDepartment" ToRole="StudentUniversityRequest" />
+          <NavigationProperty Name="University" Relationship="Self.FK_UniversityDepartment_University" FromRole="UniversityDepartment" ToRole="University" />
+        </EntityType>
+        <Association Name="FK_City_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_University_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="University" Type="Self.University" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="University">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_ContactType">
+          <End Role="ContactType" Type="Self.ContactType" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="ContactTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_StudentRequest">
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="StudentRequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniversityDepartment_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="UniversityDepartment" Type="Self.UniversityDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniversityDepartment">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentRequest_EducationType">
+          <End Role="EducationType" Type="Self.EducationType" Multiplicity="0..1" />
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EducationType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentRequest">
+              <PropertyRef Name="EducationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterviewHistory_StudentRequest">
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="0..1" />
+          <End Role="InterviewHistory" Type="Self.InterviewHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="InterviewHistory">
+              <PropertyRef Name="StudentRequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentRequest_RequestTracking">
+          <End Role="RequestTracking" Type="Self.RequestTracking" Multiplicity="0..1" />
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestTracking">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentRequest">
+              <PropertyRef Name="RequestTrackingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentUniversityRequest_StudentRequest">
+          <End Role="StudentRequest" Type="Self.StudentRequest" Multiplicity="0..1" />
+          <End Role="StudentUniversityRequest" Type="Self.StudentUniversityRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentUniversityRequest">
+              <PropertyRef Name="StudentRequestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentUniversityRequest_UniversityDepartment">
+          <End Role="UniversityDepartment" Type="Self.UniversityDepartment" Multiplicity="0..1" />
+          <End Role="StudentUniversityRequest" Type="Self.StudentUniversityRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversityDepartment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentUniversityRequest">
+              <PropertyRef Name="UniversityDepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UniversityDepartment_University">
+          <End Role="University" Type="Self.University" Multiplicity="0..1" />
+          <End Role="UniversityDepartment" Type="Self.UniversityDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UniversityDepartment">
+              <PropertyRef Name="UniversityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DraftPSDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" />
+          <EntitySet Name="ContactType" EntityType="Self.ContactType" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="EducationType" EntityType="Self.EducationType" />
+          <EntitySet Name="InterviewHistory" EntityType="Self.InterviewHistory" />
+          <EntitySet Name="RequestTracking" EntityType="Self.RequestTracking" />
+          <EntitySet Name="StudentRequest" EntityType="Self.StudentRequest" />
+          <EntitySet Name="StudentUniversityRequest" EntityType="Self.StudentUniversityRequest" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="University" EntityType="Self.University" />
+          <EntitySet Name="UniversityDepartment" EntityType="Self.UniversityDepartment" />
+          <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_University_City" Association="Self.FK_University_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="University" EntitySet="University" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_ContactType" Association="Self.FK_Contact_ContactType">
+            <End Role="ContactType" EntitySet="ContactType" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_StudentRequest" Association="Self.FK_Contact_StudentRequest">
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniversityDepartment_Department" Association="Self.FK_UniversityDepartment_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentRequest_EducationType" Association="Self.FK_StudentRequest_EducationType">
+            <End Role="EducationType" EntitySet="EducationType" />
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterviewHistory_StudentRequest" Association="Self.FK_InterviewHistory_StudentRequest">
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+            <End Role="InterviewHistory" EntitySet="InterviewHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentRequest_RequestTracking" Association="Self.FK_StudentRequest_RequestTracking">
+            <End Role="RequestTracking" EntitySet="RequestTracking" />
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentUniversityRequest_StudentRequest" Association="Self.FK_StudentUniversityRequest_StudentRequest">
+            <End Role="StudentRequest" EntitySet="StudentRequest" />
+            <End Role="StudentUniversityRequest" EntitySet="StudentUniversityRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentUniversityRequest_UniversityDepartment" Association="Self.FK_StudentUniversityRequest_UniversityDepartment">
+            <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
+            <End Role="StudentUniversityRequest" EntitySet="StudentUniversityRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniversityDepartment_University" Association="Self.FK_UniversityDepartment_University">
+            <End Role="University" EntitySet="University" />
+            <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DraftPSDbModelStoreContainer" CdmEntityContainer="DraftPSDbEntities">
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="DraftPSDbModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="DraftPSDbModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ContactTypeID" ColumnName="ContactTypeID" />
+                <ScalarProperty Name="StudentRequestID" ColumnName="StudentRequestID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactType">
+            <EntityTypeMapping TypeName="DraftPSDbModel.ContactType">
+              <MappingFragment StoreEntitySet="ContactType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="DraftPSDbModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="DraftPSDbModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EducationType">
+            <EntityTypeMapping TypeName="DraftPSDbModel.EducationType">
+              <MappingFragment StoreEntitySet="EducationType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterviewHistory">
+            <EntityTypeMapping TypeName="DraftPSDbModel.InterviewHistory">
+              <MappingFragment StoreEntitySet="InterviewHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+                <ScalarProperty Name="StudentRequestID" ColumnName="StudentRequestID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestTracking">
+            <EntityTypeMapping TypeName="DraftPSDbModel.RequestTracking">
+              <MappingFragment StoreEntitySet="RequestTracking">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentRequest">
+            <EntityTypeMapping TypeName="DraftPSDbModel.StudentRequest">
+              <MappingFragment StoreEntitySet="StudentRequest">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+                <ScalarProperty Name="EducationTypeID" ColumnName="EducationTypeID" />
+                <ScalarProperty Name="HomeCityID" ColumnName="HomeCityID" />
+                <ScalarProperty Name="RequestTrackingID" ColumnName="RequestTrackingID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentUniversityRequest">
+            <EntityTypeMapping TypeName="DraftPSDbModel.StudentUniversityRequest">
+              <MappingFragment StoreEntitySet="StudentUniversityRequest">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentRequestID" ColumnName="StudentRequestID" />
+                <ScalarProperty Name="UniversityDepartmentID" ColumnName="UniversityDepartmentID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DraftPSDbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="University">
+            <EntityTypeMapping TypeName="DraftPSDbModel.University">
+              <MappingFragment StoreEntitySet="University">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UniversityDepartment">
+            <EntityTypeMapping TypeName="DraftPSDbModel.UniversityDepartment">
+              <MappingFragment StoreEntitySet="UniversityDepartment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UniversityID" ColumnName="UniversityID" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
